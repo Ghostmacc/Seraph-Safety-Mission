@@ -96,7 +96,7 @@
             mode: 'webchat'
           },
           role: 'operator',
-          scopes: ['operator.admin'],
+          scopes: ['operator.admin', 'operator.write', 'operator.read'],
           caps: [],
           auth: { token: TOKEN },
           userAgent: navigator.userAgent,
