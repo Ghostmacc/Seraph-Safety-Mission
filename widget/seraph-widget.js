@@ -211,7 +211,7 @@
           sessionKey: sessionKey,
           message: text,
           deliver: false,
-          agentId: AGENT
+          idempotencyKey: uuid()
         }
       };
       pendingRequests[reqId] = function (res) {
