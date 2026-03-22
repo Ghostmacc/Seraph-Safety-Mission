@@ -81,16 +81,26 @@
     ws = new WebSocket(GATEWAY);
 
     ws.onopen = function () {
-      // Send connect frame with auth
+      // Send connect frame with auth (OpenClaw protocol v3)
       var connectFrame = {
         type: 'req',
         id: uuid(),
         method: 'connect',
         params: {
-          version: '2026.2.15',
-          auth: { token: TOKEN },
+          minProtocol: 3,
+          maxProtocol: 3,
+          client: {
+            id: 'seraph-widget',
+            version: '0.1.0',
+            platform: 'web',
+            mode: 'webchat'
+          },
+          role: 'operator',
           scopes: ['operator.admin'],
-          role: 'operator'
+          caps: [],
+          auth: { token: TOKEN },
+          userAgent: navigator.userAgent,
+          locale: navigator.language
         }
       };
       ws.send(JSON.stringify(connectFrame));
