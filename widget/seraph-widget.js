@@ -118,7 +118,15 @@
           return;
         }
 
-        // Chat event (streaming response)
+        // Agent event — streaming text from Kimi
+        if ((frame.type === 'evt' || frame.type === 'event') && frame.event === 'agent') {
+          var agentPayload = frame.payload;
+          if (agentPayload && agentPayload.stream === 'assistant' && agentPayload.data && typeof agentPayload.data.text === 'string') {
+            updateStreamMessage(agentPayload.data.text);
+          }
+        }
+
+        // Chat event — state tracking (delta/final/error)
         if ((frame.type === 'evt' || frame.type === 'event') && frame.event === 'chat') {
           var payload = frame.payload;
           if (payload && payload.state === 'delta' && payload.message) {
