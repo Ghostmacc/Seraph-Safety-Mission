@@ -5,7 +5,7 @@
  * <script src="/widget/seraph-widget.js"></script>
  */
 (function () {
-  var GATEWAY = 'ws://187.124.240.156:18789';
+  var GATEWAY = 'wss://seraph.seraphsafe.org';
   var TOKEN = '9e871d10aafd0421f0c48af12279ee251a1048dee01fe7ee';
   var AGENT = 'seraph-v2';
 
