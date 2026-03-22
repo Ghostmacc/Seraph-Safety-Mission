@@ -23,6 +23,26 @@
   to = "/contact/"
   status = 301
 
+[[redirects]]
+  from = "/donate"
+  to = "/donate/"
+  status = 301
+
+[[redirects]]
+  from = "/fundraising"
+  to = "/fundraising/"
+  status = 301
+
+[[redirects]]
+  from = "/fundraising/baby-contest"
+  to = "/fundraising/baby-contest/"
+  status = 301
+
+[[redirects]]
+  from = "/fundraising/shoe-drive"
+  to = "/fundraising/shoe-drive/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

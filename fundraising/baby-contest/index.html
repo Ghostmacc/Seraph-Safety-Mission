@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Precious Baby Contest | Seraph Safety Mission</title>
+  <meta name="description" content="Enter the Seraph Safety Mission Precious Baby Contest! Submit your baby's photo, rally votes, and help fund bath safety education for Arkansas families."/>
+  <link rel="icon" href="/assets/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="/assets/style.css"/>
+  <meta property="og:title" content="Precious Baby Contest | Seraph Safety Mission"/>
+  <meta property="og:description" content="Enter your baby in the cutest baby contest — every vote funds bath safety education!"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="/assets/logo.png"/>
+  <meta name="theme-color" content="#1F4E78"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <div class="nav">
+    <a class="brand" href="/">
+      <img src="/assets/logo.png" alt="Seraph Safety Mission logo"/>
+      <div class="title">
+        <strong>Seraph Safety Mission</strong>
+        <span>Guarding Our Most Precious Splashes.</span>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/whitepaper/">Whitepaper</a>
+      <a href="/guides/bath/">Bath Guide</a>
+      <a href="/resources/">References</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <div class="nav-dropdown">
+        <a href="/fundraising/" tabindex="0">Fundraising</a>
+        <div class="nav-dropdown-menu">
+          <a href="/fundraising/baby-contest/">Precious Baby Contest<small>Vote for the cutest baby!</small></a>
+          <a href="/fundraising/shoe-drive/">Shoe Drive<small>Donate gently used shoes</small></a>
+          <a href="/donate/">Direct Donation<small>Give today</small></a>
+        </div>
+      </div>
+      <a class="btn-donate" href="/donate/">Donate</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="container">
+
+<section class="hero-fundraising" style="background:linear-gradient(135deg, rgba(254,205,211,0.3) 0%, rgba(253,164,175,0.2) 50%, rgba(225,29,72,0.08) 100%);">
+  <div class="kicker">Fundraising campaign</div>
+  <h1>Precious Baby Contest</h1>
+  <p>
+    Show off your adorable baby and help save lives! Enter your child's photo, share with friends and family, and rally votes. <strong>Every vote is a donation</strong> that funds bath safety education for Arkansas families.
+  </p>
+  <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+    <a class="btn primary" href="#enter">Enter Your Baby</a>
+    <a class="btn secondary" href="#how-it-works">How It Works</a>
+  </div>
+</section>
+
+<section class="section" id="how-it-works">
+  <h2>How It Works</h2>
+  <div class="grid">
+    <div class="card" style="grid-column: span 3; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:8px;" aria-hidden="true">1.</div>
+      <h3>Submit a Photo</h3>
+      <p>Fill out the entry form with your baby's name and a cute photo.</p>
+    </div>
+    <div class="card" style="grid-column: span 3; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:8px;" aria-hidden="true">2.</div>
+      <h3>Share Your Link</h3>
+      <p>Once approved, your baby's entry goes live. Share it everywhere!</p>
+    </div>
+    <div class="card" style="grid-column: span 3; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:8px;" aria-hidden="true">3.</div>
+      <h3>Collect Votes</h3>
+      <p>Friends and family vote by donating. Each dollar = one vote.</p>
+    </div>
+    <div class="card" style="grid-column: span 3; text-align:center;">
+      <div style="font-size:2rem; margin-bottom:8px;" aria-hidden="true">4.</div>
+      <h3>Win Prizes</h3>
+      <p>Top vote-getters win prizes and bragging rights!</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="notice">
+    <strong>Coming Soon:</strong> The voting gallery will be live once we receive our first entries! Submit your baby's photo below to be among the first contestants.
+  </div>
+</section>
+
+<section class="section" id="enter">
+  <h2>Enter Your Baby</h2>
+  <div class="grid">
+    <div class="card form" style="grid-column: span 7;">
+      <h3>Entry Form</h3>
+      <p>Fill out the form below to enter your baby. We'll review submissions and add them to the voting gallery.</p>
+
+      <form name="baby-contest-entry" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="baby-contest-entry"/>
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+
+        <label for="parent-name">Your Name</label>
+        <input id="parent-name" name="parent-name" autocomplete="name" required/>
+
+        <label for="parent-email">Your Email</label>
+        <input id="parent-email" name="parent-email" type="email" autocomplete="email" required/>
+
+        <label for="parent-phone">Phone (optional)</label>
+        <input id="parent-phone" name="parent-phone" type="tel" autocomplete="tel"/>
+
+        <label for="baby-name">Baby's Name</label>
+        <input id="baby-name" name="baby-name" required/>
+
+        <label for="baby-age">Baby's Age</label>
+        <input id="baby-age" name="baby-age" placeholder="e.g., 8 months" required/>
+
+        <label for="baby-photo">Baby's Photo</label>
+        <input id="baby-photo" name="baby-photo" type="file" accept="image/*" required style="padding:8px;"/>
+
+        <label for="fun-fact">Fun Fact About Your Baby (optional)</label>
+        <textarea id="fun-fact" name="fun-fact" style="min-height:80px;" placeholder="What makes your baby special?"></textarea>
+
+        <p style="margin-top:14px;">
+          <button class="btn primary" type="submit">Submit Entry</button>
+        </p>
+      </form>
+    </div>
+
+    <div style="grid-column: span 5;">
+      <div class="card">
+        <h3>Contest Rules</h3>
+        <ul>
+          <li>Open to babies ages 0&ndash;3 years</li>
+          <li>One entry per child</li>
+          <li>Photos must be family-appropriate</li>
+          <li>Entries reviewed within 48 hours</li>
+          <li>Voting period announced when gallery opens</li>
+          <li>Each $1 donated = 1 vote</li>
+          <li>All proceeds benefit Seraph Safety Mission</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>Prizes</h3>
+        <ul>
+          <li><strong>1st Place:</strong> Custom baby gift basket + Seraph Safety Wrap</li>
+          <li><strong>2nd Place:</strong> Gift card + Seraph Safety Wrap</li>
+          <li><strong>3rd Place:</strong> Seraph Safety Wrap + certificate</li>
+          <li><strong>All Entrants:</strong> Bath safety kit + participation certificate</li>
+        </ul>
+      </div>
+
+      <div class="tax-callout" style="margin-top:16px;">
+        <strong>All votes are donations.</strong> Seraph Safety Mission is a 501(c)(3) — your votes are tax-deductible (EIN: 41-3868771).
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Share This Contest</h2>
+  <p class="lead">Help us spread the word! The more entries and votes, the more babies we can protect.</p>
+  <div class="share-row">
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://seraphsafe.org/fundraising/baby-contest/" target="_blank" rel="noopener">Share on Facebook</a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?url=https://seraphsafe.org/fundraising/baby-contest/&text=Enter%20your%20baby%20in%20the%20Precious%20Baby%20Contest%20and%20help%20prevent%20drowning!" target="_blank" rel="noopener">Share on X</a>
+    <a class="share-btn" href="mailto:?subject=Precious%20Baby%20Contest&body=Check%20out%20this%20cute%20baby%20contest%20that%20supports%20bath%20safety!%20https://seraphsafe.org/fundraising/baby-contest/" target="_blank" rel="noopener">Share via Email</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="email-signup">
+    <h3>Get Contest Updates</h3>
+    <p>Be notified when the voting gallery opens and when winners are announced.</p>
+    <form name="baby-contest-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="baby-contest-signup"/>
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+      <div class="signup-row">
+        <input type="email" name="email" placeholder="your@email.com" required/>
+        <button type="submit">Notify Me</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+  </div>
+</main>
+<footer>
+  <div class="footer-inner">
+    <div class="col">
+      <p><strong>Seraph Safety Mission</strong></p>
+      <p><small>"Guarding Our most Precious Splashes."</small></p>
+      <p><small>Hot Springs, Arkansas</small></p>
+    </div>
+    <div class="col">
+      <p><small><strong>Contact</strong></small></p>
+      <p><small>Phone: <a href="tel:+15019142284">(501) 914-2284</a> &bull; <a href="tel:+15019141284">(501) 914-1284</a></small></p>
+      <p><small>Email: <a href="mailto:Seraphsafetydirector@outlook.com">Seraphsafetydirector@outlook.com</a></small></p>
+    </div>
+    <div class="col">
+      <p><small><strong>Quick Links</strong></small></p>
+      <p><small><a href="/fundraising/">All Campaigns</a></small></p>
+      <p><small><a href="/donate/">Donate</a></small></p>
+      <p><small><a href="/about/">About Us</a></small></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

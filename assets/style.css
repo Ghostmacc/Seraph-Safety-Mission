@@ -245,7 +245,311 @@ input, textarea{
 }
 textarea{min-height:140px; resize:vertical;}
 
+/* ── Dropdown nav ── */
+.nav-dropdown{
+  position:relative;
+}
+.nav-dropdown > a{
+  cursor:pointer;
+}
+.nav-dropdown > a::after{
+  content:" \25BE";
+  font-size:0.7em;
+}
+.nav-dropdown-menu{
+  display:none;
+  position:absolute;
+  top:100%;
+  right:0;
+  min-width:200px;
+  padding:8px 0;
+  margin-top:6px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 8px 24px rgba(0,0,0,0.08);
+  z-index:100;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{
+  display:block;
+}
+.nav-dropdown-menu a{
+  display:block;
+  padding:8px 16px;
+  font-weight:600;
+  color:var(--ink);
+  white-space:nowrap;
+}
+.nav-dropdown-menu a:hover{
+  background:var(--panel);
+  text-decoration:none;
+}
+.nav-dropdown-menu a small{
+  display:block;
+  font-weight:400;
+  color:var(--muted);
+  font-size:0.82rem;
+}
+
+/* ── Donate button in nav ── */
+.btn-donate{
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:999px;
+  background:var(--red);
+  color:#fff !important;
+  font-weight:800;
+  font-size:0.9rem;
+  border:none;
+  letter-spacing:0.02em;
+  transition:filter 0.15s;
+}
+.btn-donate:hover{
+  filter:brightness(1.15);
+  text-decoration:none;
+}
+
+/* ── Campaign cards ── */
+.campaign-card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:0;
+  overflow:hidden;
+  transition:transform 0.15s, box-shadow 0.15s;
+}
+.campaign-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+.campaign-card .campaign-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue2) 100%);
+}
+.campaign-card .campaign-body{
+  padding:20px;
+}
+.campaign-card h3{
+  margin:0 0 8px;
+  font-size:1.2rem;
+  color:var(--ink);
+}
+.campaign-card p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+.campaign-card .campaign-tag{
+  display:inline-block;
+  font-size:0.75rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  padding:3px 10px;
+  border-radius:999px;
+  margin-bottom:10px;
+}
+.campaign-tag.active{background:#dcfce7; color:#166534;}
+.campaign-tag.upcoming{background:#fef3c7; color:#92400e;}
+.campaign-tag.ongoing{background:#dbeafe; color:#1e40af;}
+
+/* ── Hero variants ── */
+.hero-fundraising{
+  padding:48px 28px;
+  border-radius:var(--radius);
+  background:linear-gradient(135deg, rgba(31,78,120,0.14) 0%, rgba(43,99,153,0.08) 50%, rgba(192,0,0,0.10) 100%);
+  border:1px solid var(--border);
+  text-align:center;
+}
+.hero-fundraising h1{
+  margin:0 0 12px;
+  font-size:2.4rem;
+  letter-spacing:-0.03em;
+}
+.hero-fundraising p{
+  margin:0 auto 20px;
+  max-width:60ch;
+  color:var(--muted);
+  font-size:1.1rem;
+}
+.hero-donate{
+  padding:48px 28px;
+  border-radius:var(--radius);
+  background:linear-gradient(135deg, rgba(192,0,0,0.08) 0%, rgba(31,78,120,0.12) 100%);
+  border:1px solid var(--border);
+  text-align:center;
+}
+.hero-donate h1{
+  margin:0 0 12px;
+  font-size:2.4rem;
+  letter-spacing:-0.03em;
+}
+.hero-donate p{
+  margin:0 auto 20px;
+  max-width:60ch;
+  color:var(--muted);
+  font-size:1.1rem;
+}
+
+/* ── Donation method cards ── */
+.donate-method{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:24px;
+  text-align:center;
+  transition:transform 0.15s, box-shadow 0.15s;
+}
+.donate-method:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+.donate-method .donate-icon{
+  font-size:2.4rem;
+  margin-bottom:10px;
+  display:block;
+}
+.donate-method h3{
+  margin:0 0 6px;
+  font-size:1.1rem;
+}
+.donate-method p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+/* ── Email signup inline ── */
+.email-signup{
+  background:var(--blue);
+  border-radius:var(--radius);
+  padding:28px;
+  color:#fff;
+  margin-top:28px;
+}
+.email-signup h3{
+  margin:0 0 6px;
+  color:#fff;
+  font-size:1.2rem;
+}
+.email-signup p{
+  margin:0 0 14px;
+  color:rgba(255,255,255,0.8);
+}
+.email-signup .signup-row{
+  display:flex;
+  gap:10px;
+  max-width:500px;
+}
+.email-signup input[type="email"]{
+  flex:1;
+  padding:11px 14px;
+  border:2px solid rgba(255,255,255,0.3);
+  border-radius:12px;
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+  font-size:1rem;
+}
+.email-signup input[type="email"]::placeholder{
+  color:rgba(255,255,255,0.5);
+}
+.email-signup button{
+  padding:11px 20px;
+  border:none;
+  border-radius:12px;
+  background:#fff;
+  color:var(--blue);
+  font-weight:700;
+  font-size:1rem;
+  cursor:pointer;
+}
+.email-signup button:hover{
+  filter:brightness(0.95);
+}
+
+/* ── Progress bar ── */
+.progress-bar{
+  background:var(--border);
+  border-radius:999px;
+  height:12px;
+  overflow:hidden;
+  margin:10px 0;
+}
+.progress-fill{
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg, var(--blue) 0%, var(--blue2) 100%);
+  transition:width 0.6s ease;
+}
+
+/* ── Impact counter row ── */
+.impact-row{
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:24px 0;
+}
+.impact-item{
+  text-align:center;
+}
+.impact-item .impact-num{
+  font-size:2rem;
+  font-weight:800;
+  color:var(--blue);
+}
+.impact-item .impact-label{
+  font-size:0.85rem;
+  color:var(--muted);
+}
+
+/* ── Share buttons ── */
+.share-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.share-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--ink);
+  font-weight:600;
+  font-size:0.85rem;
+  cursor:pointer;
+  text-decoration:none;
+}
+.share-btn:hover{
+  background:var(--panel);
+  text-decoration:none;
+}
+
+/* ── Tax deduction callout ── */
+.tax-callout{
+  background:linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  border:1px solid #bbf7d0;
+  border-left:5px solid #22c55e;
+  border-radius:var(--radius);
+  padding:18px;
+  color:#14532d;
+}
+.tax-callout strong{color:#14532d;}
+
 @media (max-width: 740px){
   .brand{min-width:auto;}
-  .hero h1{font-size:1.7rem;}
+  .hero h1, .hero-fundraising h1, .hero-donate h1{font-size:1.7rem;}
+  .grid{grid-template-columns:1fr !important;}
+  .grid > *{grid-column:span 1 !important;}
+  .email-signup .signup-row{flex-direction:column;}
+  .impact-row{gap:16px;}
+  .nav-dropdown-menu{right:auto; left:0;}
 }
