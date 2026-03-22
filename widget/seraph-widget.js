@@ -121,27 +121,24 @@
         // Chat event (streaming response)
         if (frame.type === 'evt' && frame.event === 'chat') {
           var payload = frame.payload;
-          if (payload && payload.delta) {
-            streamBuffer += payload.delta;
-            updateStreamMessage(streamBuffer);
+          if (payload && payload.state === 'delta' && payload.message) {
+            var text = extractText(payload.message);
+            if (text) {
+              updateStreamMessage(text);
+            }
           }
-          if (payload && (payload.state === 'final' || payload.state === 'done')) {
-            finalizeStreamMessage();
-            streamBuffer = '';
-          }
-        }
-
-        // Agent event with text content
-        if (frame.type === 'evt' && frame.payload && frame.payload.content) {
-          var content = frame.payload.content;
-          if (typeof content === 'string') {
-            addMessage('bot', content);
-          } else if (Array.isArray(content)) {
-            content.forEach(function (part) {
-              if (part.type === 'text' && part.text) {
-                addMessage('bot', part.text);
+          if (payload && payload.state === 'final') {
+            if (payload.message) {
+              var finalText = extractText(payload.message);
+              if (finalText && !streamMsgEl) {
+                addMessage('bot', finalText);
               }
-            });
+            }
+            finalizeStreamMessage();
+          }
+          if (payload && payload.state === 'error') {
+            addMessage('bot', payload.errorMessage || 'Something went wrong. Try again.');
+            finalizeStreamMessage();
           }
         }
       } catch (e) {
@@ -157,6 +154,24 @@
     ws.onerror = function () {
       connected = false;
     };
+  }
+
+  function extractText(message) {
+    if (!message) return '';
+    if (typeof message === 'string') return message;
+    // OpenClaw message format: { content: [{ type: "text", text: "..." }, ...] }
+    if (message.content) {
+      if (typeof message.content === 'string') return message.content;
+      if (Array.isArray(message.content)) {
+        return message.content
+          .filter(function(p) { return p.type === 'text' && p.text; })
+          .map(function(p) { return p.text; })
+          .join('');
+      }
+    }
+    // Fallback: try .text directly
+    if (message.text) return message.text;
+    return '';
   }
 
   var streamMsgEl = null;
