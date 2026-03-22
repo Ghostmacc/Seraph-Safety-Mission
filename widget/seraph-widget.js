@@ -1,20 +1,15 @@
 /**
  * Seraph Chat Widget — connects to OpenClaw gateway
- *
- * Drop into any page:
- * <script src="/widget/seraph-widget.js"></script>
+ * Drop into any page: <script src="/widget/seraph-widget.js"></script>
  */
 (function () {
   var GATEWAY = 'wss://seraph.seraphsafe.org';
   var TOKEN = '9e871d10aafd0421f0c48af12279ee251a1048dee01fe7ee';
-  var AGENT = 'seraph-v2';
 
-  // ── Styles ──
   var style = document.createElement('style');
-  style.textContent = '#seraph-bubble{position:fixed;bottom:24px;right:24px;z-index:99999;width:64px;height:64px;border-radius:50%;background:#1F4E78;color:#fff;border:none;cursor:pointer;font-size:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:transform 0.2s}#seraph-bubble:hover{transform:scale(1.1)}#seraph-panel{position:fixed;bottom:100px;right:24px;z-index:99999;width:380px;max-height:520px;border-radius:16px;background:#fff;border:1px solid #e5e9f0;box-shadow:0 12px 40px rgba(0,0,0,0.12);display:none;flex-direction:column;overflow:hidden;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}#seraph-panel.open{display:flex}#seraph-header{background:#1F4E78;color:#fff;padding:16px;display:flex;align-items:center;gap:10px}#seraph-header .name{font-weight:700;font-size:1.1rem}#seraph-header .sub{font-size:0.8rem;opacity:0.8}#seraph-close{margin-left:auto;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;opacity:0.7}#seraph-close:hover{opacity:1}#seraph-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:340px}.seraph-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:0.92rem;line-height:1.45;word-wrap:break-word}.seraph-msg.bot{background:#f6f8fb;color:#1b1f23;align-self:flex-start;border-bottom-left-radius:4px}.seraph-msg.user{background:#1F4E78;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}.seraph-msg.typing{background:#f6f8fb;color:#999;font-style:italic;align-self:flex-start;border-bottom-left-radius:4px}.seraph-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.seraph-action-btn{padding:6px 12px;border-radius:999px;border:1px solid #e5e9f0;background:#fff;color:#1F4E78;font-weight:600;font-size:0.8rem;cursor:pointer}.seraph-action-btn:hover{background:#f6f8fb}#seraph-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid #e5e9f0}#seraph-input{flex:1;padding:10px 12px;border:1px solid #e5e9f0;border-radius:12px;font-size:0.92rem;outline:none}#seraph-input:focus{border-color:#1F4E78}#seraph-send{padding:10px 16px;border:none;border-radius:12px;background:#1F4E78;color:#fff;font-weight:700;cursor:pointer;font-size:0.92rem}#seraph-send:hover{filter:brightness(1.1)}@media(max-width:480px){#seraph-panel{width:calc(100vw - 24px);right:12px;bottom:80px;max-height:70vh}}';
+  style.textContent = '#seraph-bubble{position:fixed;bottom:24px;right:24px;z-index:99999;width:64px;height:64px;border-radius:50%;background:#1F4E78;color:#fff;border:none;cursor:pointer;font-size:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:transform 0.2s}#seraph-bubble:hover{transform:scale(1.1)}#seraph-panel{position:fixed;bottom:100px;right:24px;z-index:99999;width:380px;max-height:520px;border-radius:16px;background:#fff;border:1px solid #e5e9f0;box-shadow:0 12px 40px rgba(0,0,0,0.12);display:none;flex-direction:column;overflow:hidden;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}#seraph-panel.open{display:flex}#seraph-header{background:#1F4E78;color:#fff;padding:16px;display:flex;align-items:center;gap:10px}#seraph-header .name{font-weight:700;font-size:1.1rem}#seraph-header .sub{font-size:0.8rem;opacity:0.8}#seraph-close{margin-left:auto;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;opacity:0.7}#seraph-close:hover{opacity:1}#seraph-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:340px}.seraph-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:0.92rem;line-height:1.45;word-wrap:break-word;white-space:pre-wrap}.seraph-msg.bot{background:#f6f8fb;color:#1b1f23;align-self:flex-start;border-bottom-left-radius:4px}.seraph-msg.user{background:#1F4E78;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}.seraph-msg.thinking{background:#f6f8fb;color:#999;align-self:flex-start;border-bottom-left-radius:4px}.thinking-dots span{display:inline-block;width:6px;height:6px;background:#999;border-radius:50%;margin:0 2px;animation:sdot 1.4s infinite}.thinking-dots span:nth-child(2){animation-delay:0.2s}.thinking-dots span:nth-child(3){animation-delay:0.4s}@keyframes sdot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-4px)}}#seraph-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid #e5e9f0}#seraph-input{flex:1;padding:10px 12px;border:1px solid #e5e9f0;border-radius:12px;font-size:0.92rem;outline:none}#seraph-input:focus{border-color:#1F4E78}#seraph-input:disabled{opacity:0.6}#seraph-send{padding:10px 16px;border:none;border-radius:12px;background:#1F4E78;color:#fff;font-weight:700;cursor:pointer;font-size:0.92rem}#seraph-send:hover{filter:brightness(1.1)}#seraph-send:disabled{opacity:0.5;cursor:not-allowed}@media(max-width:480px){#seraph-panel{width:calc(100vw - 24px);right:12px;bottom:80px;max-height:70vh}}';
   document.head.appendChild(style);
 
-  // ── Build DOM ──
   var bubble = document.createElement('button');
   bubble.id = 'seraph-bubble';
   bubble.textContent = '\uD83D\uDCAC';
@@ -62,112 +57,24 @@
   document.body.appendChild(bubble);
   document.body.appendChild(panel);
 
-  // ── State ──
   var ws = null;
   var isOpen = false;
   var sessionKey = 'web-' + Date.now() + '-' + Math.random().toString(36).substring(2, 8);
-  var connected = false;
   var pendingRequests = {};
-  var streamBuffer = '';
+  var streamMsgEl = null;
+  var isBusy = false;
+  var messageQueue = [];
 
   function uuid() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
       var r = Math.random() * 16 | 0;
       return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
     });
   }
 
-  function connect() {
-    ws = new WebSocket(GATEWAY);
-
-    ws.onopen = function () {
-      // Send connect frame with auth (OpenClaw protocol v3)
-      var connectFrame = {
-        type: 'req',
-        id: uuid(),
-        method: 'connect',
-        params: {
-          minProtocol: 3,
-          maxProtocol: 3,
-          client: {
-            id: 'openclaw-control-ui',
-            version: '0.1.0',
-            platform: 'web',
-            mode: 'webchat'
-          },
-          role: 'operator',
-          scopes: ['operator.admin', 'operator.write', 'operator.read'],
-          caps: [],
-          auth: { token: TOKEN },
-          userAgent: navigator.userAgent,
-          locale: navigator.language
-        }
-      };
-      ws.send(JSON.stringify(connectFrame));
-      connected = true;
-    };
-
-    ws.onmessage = function (event) {
-      try {
-        var frame = JSON.parse(event.data);
-
-        // Response to a request
-        if (frame.type === 'res' && frame.id && pendingRequests[frame.id]) {
-          pendingRequests[frame.id](frame);
-          delete pendingRequests[frame.id];
-          return;
-        }
-
-        // Agent event — streaming text from Kimi
-        if ((frame.type === 'evt' || frame.type === 'event') && frame.event === 'agent') {
-          var agentPayload = frame.payload;
-          if (agentPayload && agentPayload.stream === 'assistant' && agentPayload.data && typeof agentPayload.data.text === 'string') {
-            updateStreamMessage(agentPayload.data.text);
-          }
-        }
-
-        // Chat event — state tracking (delta/final/error)
-        if ((frame.type === 'evt' || frame.type === 'event') && frame.event === 'chat') {
-          var payload = frame.payload;
-          if (payload && payload.state === 'delta' && payload.message) {
-            var text = extractText(payload.message);
-            if (text) {
-              updateStreamMessage(text);
-            }
-          }
-          if (payload && payload.state === 'final') {
-            if (payload.message) {
-              var finalText = extractText(payload.message);
-              if (finalText && !streamMsgEl) {
-                addMessage('bot', finalText);
-              }
-            }
-            finalizeStreamMessage();
-          }
-          if (payload && payload.state === 'error') {
-            addMessage('bot', payload.errorMessage || 'Something went wrong. Try again.');
-            finalizeStreamMessage();
-          }
-        }
-      } catch (e) {
-        // Ignore parse errors
-      }
-    };
-
-    ws.onclose = function () {
-      connected = false;
-      setTimeout(connect, 3000);
-    };
-
-    ws.onerror = function () {
-      connected = false;
-    };
-  }
-
   function extractText(message) {
     if (!message) return '';
     if (typeof message === 'string') return message;
-    // OpenClaw message format: { content: [{ type: "text", text: "..." }, ...] }
     if (message.content) {
       if (typeof message.content === 'string') return message.content;
       if (Array.isArray(message.content)) {
@@ -177,12 +84,99 @@
           .join('');
       }
     }
-    // Fallback: try .text directly
     if (message.text) return message.text;
     return '';
   }
 
-  var streamMsgEl = null;
+  function setBusy(busy) {
+    isBusy = busy;
+    sendBtn.disabled = busy;
+    inputEl.disabled = busy;
+    if (!busy) {
+      inputEl.focus();
+      processQueue();
+    }
+  }
+
+  function processQueue() {
+    if (messageQueue.length > 0 && !isBusy) {
+      var next = messageQueue.shift();
+      doSend(next);
+    }
+  }
+
+  function connect() {
+    ws = new WebSocket(GATEWAY);
+
+    ws.onopen = function() {
+      ws.send(JSON.stringify({
+        type: 'req', id: uuid(), method: 'connect',
+        params: {
+          minProtocol: 3, maxProtocol: 3,
+          client: { id: 'openclaw-control-ui', version: '0.1.0', platform: 'web', mode: 'webchat' },
+          role: 'operator',
+          scopes: ['operator.admin', 'operator.write', 'operator.read'],
+          caps: [],
+          auth: { token: TOKEN },
+          userAgent: navigator.userAgent,
+          locale: navigator.language
+        }
+      }));
+    };
+
+    ws.onmessage = function(event) {
+      try {
+        var frame = JSON.parse(event.data);
+
+        if (frame.type === 'res' && frame.id && pendingRequests[frame.id]) {
+          pendingRequests[frame.id](frame);
+          delete pendingRequests[frame.id];
+          return;
+        }
+
+        // Agent stream — actual text from Kimi
+        if ((frame.type === 'evt' || frame.type === 'event') && frame.event === 'agent') {
+          var ap = frame.payload;
+          if (ap && ap.stream === 'assistant' && ap.data && typeof ap.data.text === 'string') {
+            removeThinking();
+            updateStreamMessage(ap.data.text);
+          }
+        }
+
+        // Chat state events
+        if ((frame.type === 'evt' || frame.type === 'event') && frame.event === 'chat') {
+          var p = frame.payload;
+          if (p && p.state === 'delta' && p.message) {
+            var text = extractText(p.message);
+            if (text) { removeThinking(); updateStreamMessage(text); }
+          }
+          if (p && p.state === 'final') {
+            if (p.message) {
+              var ft = extractText(p.message);
+              if (ft && !streamMsgEl) addMessage('bot', ft);
+            }
+            finalizeStreamMessage();
+            setBusy(false);
+          }
+          if (p && p.state === 'error') {
+            addMessage('bot', p.errorMessage || 'Something went wrong. Try again.');
+            finalizeStreamMessage();
+            setBusy(false);
+          }
+          if (p && p.state === 'aborted') {
+            finalizeStreamMessage();
+            setBusy(false);
+          }
+        }
+      } catch(e) {}
+    };
+
+    ws.onclose = function() {
+      setBusy(false);
+      setTimeout(connect, 3000);
+    };
+    ws.onerror = function() {};
+  }
 
   function updateStreamMessage(text) {
     if (!streamMsgEl) {
@@ -194,11 +188,15 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  function finalizeStreamMessage() {
-    streamMsgEl = null;
+  function finalizeStreamMessage() { streamMsgEl = null; }
+
+  function removeThinking() {
+    var els = messagesEl.querySelectorAll('.thinking');
+    els.forEach(function(el) { el.remove(); });
   }
 
   function addMessage(type, text) {
+    removeThinking();
     var div = document.createElement('div');
     div.className = 'seraph-msg ' + type;
     div.textContent = text;
@@ -206,63 +204,69 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
+  function showThinking() {
+    removeThinking();
+    var div = document.createElement('div');
+    div.className = 'seraph-msg thinking';
+    var dots = document.createElement('span');
+    dots.className = 'thinking-dots';
+    for (var i = 0; i < 3; i++) {
+      var d = document.createElement('span');
+      dots.appendChild(d);
+    }
+    div.appendChild(dots);
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
   function sanitizeInput(text) {
     if (!text) return '';
-    // Strip HTML tags
     text = text.replace(/<[^>]*>/g, '');
-    // Strip markdown injection attempts
     text = text.replace(/!\[.*?\]\(.*?\)/g, '');
-    // Limit length
     if (text.length > 2000) text = text.substring(0, 2000);
-    // Strip null bytes
     text = text.replace(/\0/g, '');
     return text.trim();
   }
 
   function sendMessage(text) {
-    text = sanitizeInput(text);
+    text = sanitizeInput(text || inputEl.value);
     if (!text) return;
-    addMessage('user', text);
 
-    if (ws && ws.readyState === WebSocket.OPEN) {
-      var reqId = uuid();
-      var frame = {
-        type: 'req',
-        id: reqId,
-        method: 'chat.send',
-        params: {
-          sessionKey: sessionKey,
-          message: text,
-          deliver: false,
-          idempotencyKey: uuid()
-        }
-      };
-      pendingRequests[reqId] = function (res) {
-        if (!res.ok && res.error) {
-          addMessage('bot', 'Sorry, I hit a snag. Try again in a moment.');
-        }
-      };
-      ws.send(JSON.stringify(frame));
-
-      // Show typing indicator
-      addMessage('typing', 'Seraph is thinking...');
-    } else {
-      addMessage('bot', "I'm reconnecting... give me one second.");
+    if (isBusy) {
+      messageQueue.push(text);
+      addMessage('user', text);
+      inputEl.value = '';
+      addMessage('bot', 'Hold on, still working on that! I\'ll get to yours next.');
+      return;
     }
+
+    addMessage('user', text);
     inputEl.value = '';
+    doSend(text);
   }
 
-  // Remove typing indicators when real message arrives
-  var origAddMessage = addMessage;
-  addMessage = function (type, text) {
-    // Remove any typing indicators
-    var typingMsgs = messagesEl.querySelectorAll('.typing');
-    typingMsgs.forEach(function (el) { el.remove(); });
-    origAddMessage(type, text);
-  };
+  function doSend(text) {
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      setBusy(true);
+      showThinking();
+      var id = uuid();
+      ws.send(JSON.stringify({
+        type: 'req', id: id, method: 'chat.send',
+        params: { sessionKey: sessionKey, message: text, deliver: false, idempotencyKey: uuid() }
+      }));
+      pendingRequests[id] = function(res) {
+        if (!res.ok && res.error) {
+          removeThinking();
+          addMessage('bot', 'Sorry, I hit a snag. Try again in a moment.');
+          setBusy(false);
+        }
+      };
+    } else {
+      addMessage('bot', 'I\'m reconnecting... give me one second.');
+    }
+  }
 
-  // ── Events ──
-  bubble.onclick = function () {
+  bubble.onclick = function() {
     isOpen = !isOpen;
     panel.classList.toggle('open', isOpen);
     if (isOpen && !ws) {
@@ -272,13 +276,13 @@
     if (isOpen) inputEl.focus();
   };
 
-  closeBtn.onclick = function () {
+  closeBtn.onclick = function() {
     isOpen = false;
     panel.classList.remove('open');
   };
 
-  sendBtn.onclick = function () { sendMessage(inputEl.value); };
-  inputEl.onkeydown = function (e) {
-    if (e.key === 'Enter') sendMessage(inputEl.value);
+  sendBtn.onclick = function() { sendMessage(); };
+  inputEl.onkeydown = function(e) {
+    if (e.key === 'Enter' && !sendBtn.disabled) sendMessage();
   };
 })();
