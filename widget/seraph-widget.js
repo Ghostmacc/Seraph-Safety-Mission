@@ -119,7 +119,7 @@
         }
 
         // Chat event (streaming response)
-        if (frame.type === 'evt' && frame.event === 'chat') {
+        if ((frame.type === 'evt' || frame.type === 'event') && frame.event === 'chat') {
           var payload = frame.payload;
           if (payload && payload.state === 'delta' && payload.message) {
             var text = extractText(payload.message);
