@@ -173,8 +173,22 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
+  function sanitizeInput(text) {
+    if (!text) return '';
+    // Strip HTML tags
+    text = text.replace(/<[^>]*>/g, '');
+    // Strip markdown injection attempts
+    text = text.replace(/!\[.*?\]\(.*?\)/g, '');
+    // Limit length
+    if (text.length > 2000) text = text.substring(0, 2000);
+    // Strip null bytes
+    text = text.replace(/\0/g, '');
+    return text.trim();
+  }
+
   function sendMessage(text) {
-    if (!text || !text.trim()) return;
+    text = sanitizeInput(text);
+    if (!text) return;
     addMessage('user', text);
 
     if (ws && ws.readyState === WebSocket.OPEN) {
