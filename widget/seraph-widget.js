@@ -59,7 +59,7 @@
 
   var ws = null;
   var isOpen = false;
-  var sessionKey = 'web-' + Date.now() + '-' + Math.random().toString(36).substring(2, 8);
+  var sessionKey = 'agent:seraph-public:web-' + Date.now() + '-' + Math.random().toString(36).substring(2, 8);
   var pendingRequests = {};
   var streamMsgEl = null;
   var isBusy = false;
