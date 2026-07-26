@@ -1,30 +1,220 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Seraph Safety Mission | Closing the Towel Gap in Bath-Time Safety</title>
-  <meta name="description" content="Arkansas-based 501(c)(3) focused on drowning prevention education and safety tools for babies and families. Read the Arkansas-focused CCBSS whitepaper."/>
-  <link rel="icon" href="/assets/favicon.ico"/>
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
-  <link rel="stylesheet" href="/assets/style.css"/>
-  <meta property="og:title" content="Seraph Safety Mission | Closing the Towel Gap in Bath-Time Safety"/>
-  <meta property="og:description" content="Arkansas-based 501(c)(3) focused on drowning prevention education and safety tools for babies and families. Read the Arkansas-focused CCBSS whitepaper."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:image" content="/assets/logo.png"/>
-  <meta name="theme-color" content="#1F4E78"/>
-  
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Seraph Safety Mission | Closing the Towel Gap in Bath-Time Safety</title>
+<meta name="description" content="Arkansas-based 501(c)(3) focused on drowning prevention education and safety tools for babies and families. Read the Arkansas-focused CCBSS whitepaper."/>
+<link rel="icon" href="/assets/favicon.ico"/>
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+<meta property="og:title" content="Seraph Safety Mission | Closing the Towel Gap in Bath-Time Safety"/>
+<meta property="og:description" content="Arkansas-based 501(c)(3) focused on drowning prevention education and safety tools for babies and families. Read the Arkansas-focused CCBSS whitepaper."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="/assets/logo.png"/>
+<meta name="theme-color" content="#0F2E4A"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0F2E4A; --blue:#1F4E78; --blue2:#2B6399; --deep:#14395A;
+  --red:#C00000; --ink:#1b1f23; --muted:#5f6b7a;
+  --panel:#f6f8fb; --panel2:#F4F7FA; --border:#e5e9f0;
+  --pale:#CBDCEC; --pale2:#9FC3E4; --pale3:#7FA9CE;
+  --serif:'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color:var(--ink); background:#fff; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;}
+a{color:var(--blue); text-decoration:none;}
+a:hover{color:var(--red);}
+
+.skip-link{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+.skip-link:focus{left:12px; top:12px; width:auto; height:auto; padding:10px 12px; background:#fff; border:2px solid var(--blue); border-radius:10px; z-index:9999;}
+
+.wrap{max-width:1180px; margin:0 auto;}
+section.band{padding:0 24px;}
+
+/* ── Header ── */
+header{position:sticky; top:0; z-index:60; background:rgba(255,255,255,.93); backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid var(--border);}
+.nav{max-width:1180px; margin:0 auto; padding:12px 24px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 20px;}
+.brand{display:flex; align-items:center; gap:12px; min-width:0;}
+.brand img{width:50px; height:auto; display:block;}
+.brand .title{display:flex; flex-direction:column; line-height:1.15; min-width:0;}
+.brand .title strong{font-size:1.02rem; letter-spacing:-.01em; color:var(--deep);}
+.brand .title span{font-size:.82rem; color:var(--muted);}
+.nav-links{display:flex; flex-wrap:wrap; align-items:center; gap:10px 22px; justify-content:flex-end; flex:1 1 auto; min-width:0;}
+.nav-links > a{font-weight:600; font-size:.94rem; color:var(--ink);}
+.nav-dropdown{position:relative;}
+.nav-dropdown > a{font-weight:600; font-size:.94rem; color:var(--ink); cursor:pointer;}
+.nav-dropdown > a::after{content:" \25BE"; font-size:.7em;}
+.nav-dropdown-menu{display:none; position:absolute; top:100%; right:0; min-width:230px; padding:8px 0; margin-top:8px; background:#fff; border:1px solid var(--border); border-radius:14px; box-shadow:0 12px 32px rgba(15,46,74,.14); z-index:100;}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu a{display:block; padding:9px 16px; font-weight:600; color:var(--ink); white-space:nowrap;}
+.nav-dropdown-menu a:hover{background:var(--panel); color:var(--ink);}
+.nav-dropdown-menu small{display:block; font-weight:400; color:var(--muted); font-size:.8rem;}
+.btn-donate{padding:9px 20px; border-radius:999px; background:var(--red); color:#fff !important; font-weight:800; font-size:.88rem; letter-spacing:.02em; transition:filter .15s;}
+.btn-donate:hover{filter:brightness(1.12);}
+
+/* ── Type ── */
+h1,h2,h3{font-family:var(--serif); font-weight:600; letter-spacing:-.02em; text-wrap:pretty;}
+h2.sec{font-size:clamp(1.9rem,2.6vw,2.4rem); margin:0 0 16px; color:var(--deep);}
+.kicker{display:inline-flex; align-items:center; gap:10px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; font-size:.74rem; color:var(--blue); margin-bottom:18px;}
+.kicker i{width:26px; height:2px; background:var(--red); display:block;}
+.lead{margin:0 0 40px; max-width:78ch; font-size:1.08rem; line-height:1.65; color:var(--muted); text-wrap:pretty;}
+.src{margin:16px 0 0; font-size:.88rem; color:var(--muted);}
+.src a{font-weight:600;}
+
+/* ── Buttons ── */
+.btn{display:inline-block; padding:15px 26px; border-radius:12px; font-weight:700; font-size:1rem;}
+.btn.light{background:#fff; color:var(--navy);}
+.btn.light:hover{background:#EAF2F9; color:var(--navy);}
+.btn.ghost{border:1px solid rgba(255,255,255,.35); color:#fff;}
+.btn.ghost:hover{background:rgba(255,255,255,.1); color:#fff;}
+.btn.sm{padding:13px 24px;}
+.btn.solid{background:var(--blue); color:#fff;}
+.btn.solid:hover{background:var(--deep); color:#fff;}
+.btn.outline{border:1px solid #cfdbe7; background:#fff; color:var(--blue);}
+.btn.outline:hover{background:#EAF2F9; color:var(--blue);}
+
+/* ── Hero ── */
+.hero{background:var(--navy); background-image:radial-gradient(1100px 500px at 12% -10%, rgba(43,99,153,.55) 0%, rgba(15,46,74,0) 70%); color:#fff;}
+.hero .wrap{padding:92px 0 84px; display:flex; flex-wrap:wrap; gap:64px; align-items:center;}
+.hero-copy{flex:1 1 420px; min-width:0;}
+.hero .kicker{color:var(--pale2);}
+.hero h1{font-size:clamp(2.6rem,4.6vw,4rem); line-height:1.04; letter-spacing:-.025em; margin:0 0 22px;}
+.hero p.sub{margin:0 0 34px; font-size:1.18rem; line-height:1.6; color:var(--pale); max-width:56ch;}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
+.dl-row{display:flex; gap:22px; flex-wrap:wrap; margin-top:30px; padding-top:24px; border-top:1px solid rgba(255,255,255,.16);}
+.dl-row a{font-size:.88rem; font-weight:600; color:var(--pale2);}
+.dl-row a:hover{color:#fff;}
+.hero-gap{flex:1 1 300px; min-width:0; display:flex; flex-direction:column; gap:12px; border-left:1px solid rgba(255,255,255,.14); padding-left:40px;}
+.hero-gap .eyebrow{font-size:.74rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--pale3); margin-bottom:6px;}
+.hero-gap .big{font-family:var(--serif); font-size:3.5rem; line-height:1; font-weight:700; color:#fff;}
+.hero-gap .big.red{color:#FF9B9B; margin-top:16px;}
+.hero-gap p{margin:0; font-size:1rem; line-height:1.5; color:var(--pale);}
+.hero-gap .cite{margin-top:12px; font-size:.8rem; color:var(--pale3);}
+
+/* ── Stat band ── */
+.statband{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:16px; overflow:hidden;}
+.statband > div{background:#fff; padding:34px 30px;}
+.statband .num{font-family:var(--serif); font-size:3.4rem; line-height:1; font-weight:700; color:var(--blue);}
+.statband .num.red{color:var(--red);}
+.statband .lbl{margin-top:12px; font-size:.98rem; line-height:1.45; color:var(--muted);}
+
+/* ── Cards ── */
+.two-up{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:28px;}
+.card{background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:34px;}
+.card.plain{background:#fff;}
+.card h3{margin:0 0 14px; font-size:1.35rem; color:var(--deep);}
+.card p{margin:0 0 14px; font-size:1.04rem; line-height:1.6; color:var(--muted);}
+.card p:last-child{margin-bottom:0;}
+.card strong{color:var(--ink);}
+
+/* ── CCBSS ── */
+.ccbss{background:var(--panel2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
+.ccbss-grid{display:flex; flex-wrap:wrap; gap:28px; align-items:stretch;}
+.protocol{flex:1 1 440px; min-width:0; background:#fff; border:1px solid var(--border); border-radius:16px; padding:36px;}
+.protocol h3{margin:0 0 26px; font-size:1.4rem; color:var(--deep);}
+.steps{display:flex; flex-direction:column; gap:22px;}
+.step{display:grid; grid-template-columns:44px 1fr; gap:18px; align-items:start;}
+.step .n{width:44px; height:44px; border-radius:50%; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800;}
+.step .n.alert{background:var(--red);}
+.step .t{font-weight:800; letter-spacing:.06em; text-transform:uppercase; font-size:.8rem; color:var(--blue); margin-bottom:5px;}
+.step .t.alert{color:var(--red);}
+.step p{margin:0; font-size:1.04rem; line-height:1.55; color:var(--muted);}
+.aside-col{flex:1 1 300px; min-width:0; display:flex; flex-direction:column; gap:20px;}
+.aside-col .card{padding:32px; background:#fff;}
+.aside-col .card .eyebrow{margin:0 0 10px; font-size:.78rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);}
+.aside-col .card h3{margin:0 0 12px; font-size:1.25rem;}
+.notice{background:#FFF8E5; border:1px solid #F3E3B3; border-left:4px solid #E0A32E; border-radius:14px; padding:22px;}
+.notice p{margin:0; font-size:.96rem; line-height:1.55; color:#6b5a00;}
+.notice .links{margin-top:12px; font-size:.85rem;}
+.notice .links a{font-weight:600; color:#8a6d00;}
+
+/* ── Video ── */
+.video-grid{display:flex; flex-wrap:wrap; gap:56px; align-items:center;}
+.video-copy{flex:1 1 340px; min-width:0;}
+.video-copy p.sub{margin:0 0 24px; font-size:1.08rem; line-height:1.65; color:var(--muted); text-wrap:pretty;}
+.chapters{display:flex; flex-direction:column; gap:11px; padding-top:24px; border-top:1px solid var(--border);}
+.chapters div{display:flex; align-items:baseline; gap:14px;}
+.chapters b{font-weight:800; color:var(--blue); font-size:.85rem; width:44px; flex-shrink:0;}
+.chapters span{font-size:1rem; color:var(--muted);}
+.video-frame{flex:1 1 440px; min-width:0;}
+.player{position:relative; width:min(100%,420px); aspect-ratio:9/16; margin-inline:auto; border-radius:18px; overflow:hidden; background:var(--navy); box-shadow:0 24px 60px rgba(15,46,74,.18);}
+.poster{position:absolute; inset:0; width:100%; height:100%; border:0; padding:0; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; background:var(--navy); background-image:repeating-linear-gradient(135deg, rgba(255,255,255,.055) 0 12px, rgba(255,255,255,0) 12px 24px); transition:box-shadow .2s;}
+.poster:hover{box-shadow:inset 0 0 0 2000px rgba(255,255,255,.04);}
+.poster .disc{width:82px; height:82px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,.28);}
+.poster .disc i{display:block; width:0; height:0; border-style:solid; border-width:15px 0 15px 25px; border-color:transparent transparent transparent var(--navy); margin-left:7px;}
+.poster .cap{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--pale2);}
+.player video, .player iframe{position:absolute; inset:0; width:100%; height:100%; border:0; display:block; object-fit:contain; background:var(--navy);}
+
+/* ── Get involved ── */
+.card.navy{background:var(--navy); border:none; color:#fff; padding:38px;}
+.card.navy h3{color:#fff; margin:0 0 14px; font-size:1.4rem;}
+.card.navy p{color:var(--pale); margin:0 0 26px;}
+.card.involve{padding:38px;}
+.card.involve h3{font-size:1.4rem;}
+.card.involve p{margin:0 0 26px;}
+
+/* ── Review ── */
+.review{background:var(--panel2); border-top:1px solid var(--border);}
+.review .wrap{padding:84px 0;}
+.review-grid{display:flex; flex-wrap:wrap; gap:56px; align-items:flex-end;}
+.review-main{flex:1 1 420px; min-width:0;}
+.stars{display:flex; gap:3px; font-size:1.05rem; color:var(--blue); letter-spacing:.08em; margin-bottom:22px;}
+blockquote{margin:0; font-family:var(--serif); font-weight:400; font-size:clamp(1.5rem,2.5vw,2.1rem); line-height:1.34; letter-spacing:-.015em; color:var(--deep); max-width:30ch; text-wrap:pretty;}
+.reviewer{display:flex; align-items:center; gap:16px; margin-top:30px;}
+.avatar{width:52px; height:52px; border-radius:50%; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.05rem; flex-shrink:0;}
+.reviewer .who{font-weight:700; font-size:1.02rem; color:var(--ink);}
+.reviewer .role{font-size:.94rem; color:var(--muted);}
+.review-cta{flex:0 1 340px; width:min(340px,100%); background:#fff; border:1px solid var(--border); border-radius:16px; padding:32px;}
+.review-cta .eyebrow{margin:0 0 8px; font-size:.78rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);}
+.review-cta h3{margin:0 0 12px; font-size:1.25rem; color:var(--deep);}
+.review-cta p{margin:0 0 22px; font-size:.98rem; line-height:1.55; color:var(--muted);}
+
+/* ── Footer ── */
+footer{background:var(--navy); color:var(--pale); padding:0 24px;}
+footer .cols{max-width:1180px; margin:0 auto; padding:56px 0 24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:40px; align-items:start;}
+footer .fbrand{display:flex; align-items:center; gap:12px; margin-bottom:14px;}
+footer .fbrand img{width:46px; height:auto; display:block;}
+footer .fbrand strong{color:#fff; font-size:1.02rem;}
+footer p{margin:0 0 7px; font-size:.94rem;}
+footer .tag{color:var(--pale2); margin-bottom:6px;}
+footer .head{margin:0 0 12px; font-size:.78rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--pale3);}
+footer a{color:var(--pale);}
+footer a:hover{color:#fff;}
+footer .legal{max-width:1180px; margin:0 auto; padding:20px 0 34px; border-top:1px solid rgba(255,255,255,.12); font-size:.85rem; color:var(--pale3);}
+
+.pt80{padding:80px 0 0;} .pt72{padding:72px 0;} .pt80b{padding:80px 0;} .pb84{padding:0 0 84px;}
+
+@media (max-width:740px){
+  .hero .wrap{padding:64px 0 56px; gap:40px;}
+  .hero-gap{border-left:none; padding-left:0; border-top:1px solid rgba(255,255,255,.14); padding-top:32px;}
+  .video-grid, .review-grid{gap:36px;}
+  .pt80{padding:56px 0 0;} .pt72{padding:56px 0;} .pt80b{padding:56px 0;} .pb84{padding:0 0 56px;}
+  .review .wrap{padding:56px 0;}
+  .nav-dropdown-menu{right:auto; left:0;}
+}
+</style>
 </head>
-<body class="">
+<body>
 <a class="skip-link" href="#main">Skip to content</a>
+
 <header>
   <div class="nav">
     <a class="brand" href="/">
       <img src="/assets/logo.png" alt="Seraph Safety Mission logo"/>
-      <div class="title">
+      <span class="title">
         <strong>Seraph Safety Mission</strong>
         <span>Guarding Our Most Precious Splashes.</span>
-      </div>
+      </span>
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="/whitepaper/">Whitepaper</a>
@@ -44,174 +234,249 @@
     </nav>
   </div>
 </header>
+
 <main id="main">
-  <div class="container">
-    
-<section class="hero">
-  <div class="kicker">Arkansas drowning prevention</div>
-  <h1>Closing the “Towel Gap” in Bath-Time Safety</h1>
-  <p>
-    <strong>Seraph Safety Mission</strong> is an Arkansas-based 501(c)(3) focused on drowning prevention education and practical safety tools for babies, toddlers, and the families who care for them—especially during the routine moments where risk is highest.
-  </p>
-  <div class="cta-row">
-    <a class="btn primary" href="/whitepaper/">Read the whitepaper</a>
-    <a class="btn secondary" href="/assets/whitepaper.pdf">Download PDF</a>
-    <a class="btn" href="/assets/Seraph_Safety_Mission_CCBSS_PitchDeck.pptx">Download pitch deck (PPTX)</a>
-    <a class="btn" href="/guides/bath/">Bath safety checklist</a>
-  </div>
-</section>
 
-<section class="section">
-  <h2>Arkansas snapshot (state evidence base)</h2>
-  <p class="lead">
-    Arkansas Infant &amp; Child Death Review (ICDR) reporting for deaths occurring in <strong>2023</strong> documents <strong>12 unintentional drowning deaths</strong> among infants and children. The report notes most occurred in open water, with a smaller—but operationally important—fraction occurring in pool-or-bathtub settings.
-  </p>
-
-  <div class="grid">
-    <div class="card" style="grid-column: span 4;">
-      <div class="stat">
-        <div class="num">12</div>
-        <div class="label">Arkansas unintentional drowning deaths (infants &amp; children, 2023)</div>
+  <section class="band hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="kicker"><i></i>Arkansas drowning prevention</div>
+        <h1>Closing the &ldquo;Towel&nbsp;Gap&rdquo; in bath-time safety.</h1>
+        <p class="sub">An Arkansas-based 501(c)(3) building drowning-prevention education and practical safety tools for babies, toddlers, and the families who care for them &mdash; focused on the routine moments where risk is highest.</p>
+        <div class="cta-row">
+          <a class="btn light" href="/whitepaper/">Read the whitepaper</a>
+          <a class="btn ghost" href="/guides/bath/">Bath safety checklist</a>
+        </div>
+        <div class="dl-row">
+          <a href="/assets/whitepaper.pdf">&darr; Whitepaper (PDF)</a>
+          <a href="/assets/Seraph_Safety_Mission_CCBSS_PitchDeck.pptx">&darr; Pitch deck (PPTX)</a>
+        </div>
+      </div>
+      <div class="hero-gap">
+        <div class="eyebrow">The gap we close</div>
+        <div class="big">91%</div>
+        <p>of bathtub submersion incidents involved a caregiver who <em>intended</em> to supervise.</p>
+        <div class="big red">24%</div>
+        <p>were actually engaged in supervising at the moment it happened.</p>
+        <p class="cite">Johnson et al., <em>Injury Epidemiology</em> (2025)</p>
       </div>
     </div>
-    <div class="card" style="grid-column: span 4;">
-      <div class="stat">
-        <div class="num">17%</div>
-        <div class="label">Pool-or-bathtub (Arkansas ICDR, 2023)</div>
+  </section>
+
+  <section class="band">
+    <div class="wrap pt80">
+      <h2 class="sec">Arkansas snapshot</h2>
+      <p class="lead">Arkansas Infant &amp; Child Death Review reporting for deaths occurring in <strong>2023</strong> documents <strong>12 unintentional drowning deaths</strong> among infants and children. Most occurred in open water, with a smaller &mdash; but operationally important &mdash; fraction in pool-or-bathtub settings.</p>
+      <div class="statband">
+        <div>
+          <div class="num red">12</div>
+          <div class="lbl">Arkansas unintentional drowning deaths among infants &amp; children, 2023</div>
+        </div>
+        <div>
+          <div class="num">17%</div>
+          <div class="lbl">Occurred in a pool or bathtub</div>
+        </div>
+        <div>
+          <div class="num">83%</div>
+          <div class="lbl">Occurred in open water</div>
+        </div>
+      </div>
+      <p class="src">Source: <a href="/resources/#ar_icdr_fy26">Arkansas ICDR FY26 report (deaths in 2023)</a></p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap pt72">
+      <h2 class="sec" style="max-width:34ch; margin-bottom:40px;">Why bathtubs still matter &mdash; even when open water dominates</h2>
+      <div class="two-up">
+        <div class="card">
+          <h3>Infants: bathtub concentration</h3>
+          <p>National NCHS surveillance reports that during 2018&ndash;2019, most unintentional drowning deaths among infants under age 1 occurred in <strong>bathtubs &mdash; about 75%</strong>.</p>
+          <p class="src" style="margin:0;">Source: <a href="/resources/#nchs_db413">NCHS Data Brief 413</a></p>
+        </div>
+        <div class="card">
+          <h3>In-home drowning is often a bathtub event</h3>
+          <p>CPSC reports nearly 90 children drown inside the home each year, two-thirds of them in the bathtub. A child can drown in as little as <strong>2 inches</strong> of water &mdash; quickly, and silently.</p>
+          <p class="src" style="margin:0;">Source: <a href="/resources/#cpsc_in_home_drowning">CPSC In-Home Drowning Safety Information Center</a></p>
+        </div>
       </div>
     </div>
-    <div class="card" style="grid-column: span 4;">
-      <div class="stat">
-        <div class="num">83%</div>
-        <div class="label">Open water (Arkansas ICDR, 2023)</div>
+  </section>
+
+  <section class="band ccbss">
+    <div class="wrap pt80b">
+      <div class="kicker"><i></i>Our intervention</div>
+      <h2 class="sec">The Continuous-Contact Bath Safety System</h2>
+      <p class="lead" style="max-width:72ch; margin-bottom:42px;">CCBSS is a combined behavioral and wearable approach designed to reduce risk during the predictable interruptions that bath time always brings.</p>
+      <div class="ccbss-grid">
+        <div class="protocol">
+          <h3>Touch-First Bath Protocol</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="n">1</div>
+              <div>
+                <div class="t">Stage</div>
+                <p>Before the water is turned on, stage towels, diaper, clothes, and soap within arm&rsquo;s reach.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">2</div>
+              <div>
+                <div class="t">Touch</div>
+                <p>Maintain continuous physical contact the entire time baby is in the tub.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="n alert">3</div>
+              <div>
+                <div class="t alert">Interruptions</div>
+                <p><strong style="color:var(--ink)">Extract &rarr; Secure &rarr; Resolve.</strong> Remove baby from the water first. Every time.</p>
+              </div>
+            </div>
+          </div>
+          <p class="src">Design evidence: <a href="/resources/#johnson_2025_bathtub_registry">Johnson et al. (2025)</a></p>
+        </div>
+        <div class="aside-col">
+          <div class="card">
+            <p class="eyebrow">Wearable concept</p>
+            <h3>Seraph Safety Wrap</h3>
+            <p style="margin:0;">A rapid-securing, high-friction wrap intended to help caregivers stabilize a wet, slippery child <strong>after extraction</strong> &mdash; not for in-water use.</p>
+          </div>
+          <div class="notice">
+            <p><strong>Important:</strong> any wearable that supports infant weight must be designed and tested to applicable carrier safety standards.</p>
+            <p class="links"><a href="/resources/#ecfr_16cfr1226">16 CFR Part 1226</a> &middot; <a href="/resources/#cpsc_carrier_guidance">CPSC carrier guidance</a></p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <p class="sources">
-    Sources: <a href="/resources/#ar_icdr_fy26">Arkansas ICDR FY26 report (deaths in 2023)</a>.
-  </p>
-</section>
-
-<section class="section">
-  <h2>Why bathtubs still matter—even when open water dominates</h2>
-  <div class="grid">
-    <div class="card" style="grid-column: span 6;">
-      <h3>Infants: bathtub concentration</h3>
-      <p>
-        National NCHS surveillance reports that during 2018–2019, most unintentional drowning deaths among
-        infants under age 1 occurred in <strong>bathtubs (about 75%)</strong>.
-      </p>
-      <p class="sources">
-        Source: <a href="/resources/#nchs_db413">NCHS Data Brief 413</a>.
-      </p>
-    </div>
-    <div class="card" style="grid-column: span 6;">
-      <h3>In-home drowning is often a bathtub event</h3>
-      <p>
-        CPSC safety information states that nearly 90 children drown inside the home each year and
-        that two-thirds occur in the bathtub. CPSC also warns a child can drown in as little as <strong>2 inches</strong> of water,
-        and that drowning can be quick and silent.
-      </p>
-      <p class="sources">
-        Source: <a href="/resources/#cpsc_in_home_drowning">CPSC In-Home Drowning Safety Information Center</a>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Our intervention concept: CCBSS</h2>
-  <p class="lead">
-    The <strong>Continuous-Contact Bath Safety System (CCBSS)</strong> is a combined behavioral + (potential) wearable approach designed to reduce risk during predictable bath-time interruptions.
-  </p>
-
-  <div class="grid">
-    <div class="card" style="grid-column: span 7;">
-      <h3>Touch-First Bath Protocol (TFBP)</h3>
-      <ul>
-        <li><strong>STAGE:</strong> Before water is turned on, stage towels/diaper/clothes/soap within arm’s reach.</li>
-        <li><strong>TOUCH:</strong> Maintain continuous physical contact while baby is in the tub.</li>
-        <li><strong>INTERRUPTIONS:</strong> <em>Extract → Secure → Resolve</em> (remove baby from water first, every time).</li>
-      </ul>
-      <p class="sources">
-        Design evidence: <a href="/resources/#johnson_2025_bathtub_registry">Johnson et al. (2025)</a>.
-      </p>
-    </div>
-    <div class="card" style="grid-column: span 5;">
-      <h3>Seraph Safety Wrap (wearable concept)</h3>
-      <p>
-        A rapid-securing, high-friction wrap/apron concept intended to help caregivers stabilize a wet, slippery child
-        <strong>after extraction</strong> (not for in-water use).
-      </p>
-      <div class="notice">
-        <strong>Important:</strong> Any wearable that supports infant weight must be designed and tested to applicable carrier safety standards.
+  <section class="band">
+    <div class="wrap pt80b">
+      <div class="video-grid">
+        <div class="video-copy">
+          <div class="kicker"><i></i>Watch</div>
+          <h2 class="sec">See the Touch-First protocol in under three minutes</h2>
+          <p class="sub">The whole method fits inside one bath. Watch how staging, continuous contact, and the extract-first rule work together &mdash; then send it to the next caregiver who needs it.</p>
+          <div class="chapters">
+            <div><b>0:00</b><span>Why supervision fails in real homes</span></div>
+            <div><b>0:38</b><span>Staging the bath before the water runs</span></div>
+            <div><b>1:24</b><span>Extract &rarr; Secure &rarr; Resolve, demonstrated</span></div>
+          </div>
+        </div>
+        <div class="video-frame">
+          <div class="player" id="player" data-src="/assets/seraph-safety.mp4">
+            <button class="poster" id="poster" type="button" aria-label="Play the Touch-First protocol video">
+              <span class="disc"><i></i></span>
+              <span class="cap">Touch-First protocol &middot; 2:40</span>
+            </button>
+          </div>
+        </div>
       </div>
-      <p class="sources">
-        Standards context: <a href="/resources/#ecfr_16cfr1226">16 CFR Part 1226</a> • <a href="/resources/#cpsc_carrier_guidance">CPSC carrier guidance</a>.
-      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <h2>Why this works as a “force multiplier”</h2>
-  <div class="grid">
-    <div class="card" style="grid-column: span 12;">
-      <p>
-        A peer-reviewed bathtub submersion registry analysis (Central Texas, 2014–2023) found that <strong>91%</strong> of incidents involved caregivers who intended to supervise,
-        but only <strong>24%</strong> were engaged in supervising at the moment of the incident. Common interruption patterns included retrieving towel/clothes (<strong>~39%</strong>) and caring for other children (<strong>~20%</strong>).
-      </p>
-      <p class="sources">
-        Source: <a href="/resources/#johnson_2025_bathtub_registry">Johnson et al., Injury Epidemiology (2025)</a>.
-      </p>
+  <section class="band">
+    <div class="wrap pb84">
+      <div class="two-up">
+        <div class="card navy">
+          <h3>Hospitals &amp; newborn programs</h3>
+          <p>We build low-burden training materials that fit into postpartum discharge education and newborn visits.</p>
+          <a class="btn light sm" href="/contact/">Contact us</a>
+        </div>
+        <div class="card involve">
+          <h3>Community partners</h3>
+          <p>If you work in maternal health, home visiting, WIC-adjacent education, or pediatric safety, we&rsquo;d like to coordinate distribution and training.</p>
+          <a class="btn outline sm" href="/resources/">See sources &amp; evidence</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <h2>Get involved</h2>
-  <div class="grid">
-    <div class="card" style="grid-column: span 6;">
-      <h3>Hospitals &amp; newborn programs</h3>
-      <p>
-        We’re building low-burden training materials that can fit into postpartum discharge education and newborn visits.
-      </p>
-      <p><a class="btn primary" href="/contact/">Contact us</a></p>
+  <section class="band review">
+    <div class="wrap">
+      <div class="kicker" style="margin-bottom:34px;"><i></i>From a caregiver</div>
+      <div class="review-grid">
+        <div class="review-main">
+          <div class="stars" aria-label="Five out of five stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+          <blockquote>&ldquo;I always thought I was watching him. Then I counted how many times I turned around for a towel. Staging everything first took one extra minute and changed bath time completely.&rdquo;</blockquote>
+          <div class="reviewer">
+            <div class="avatar">MR</div>
+            <div>
+              <div class="who">Megan R.</div>
+              <div class="role">Mother of two &middot; Hot Springs, AR</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-cta">
+          <p class="eyebrow">Used the protocol?</p>
+          <h3>Tell us what changed</h3>
+          <p>Caregiver stories help us reach hospitals and home-visiting programs. A few sentences is plenty.</p>
+          <a class="btn solid sm" href="/contact/">Share your story</a>
+        </div>
+      </div>
     </div>
-    <div class="card" style="grid-column: span 6;">
-      <h3>Community partners</h3>
-      <p>
-        If you work in maternal health, home visiting, WIC-adjacent education, or pediatric safety, we’d like to coordinate distribution and training.
-      </p>
-      <p><a class="btn" href="/resources/">See sources &amp; evidence</a></p>
-    </div>
-  </div>
-</section>
+  </section>
 
-  </div>
 </main>
+
 <footer>
-  <div class="footer-inner">
-    <div class="col">
-      <p><strong>Seraph Safety Mission</strong></p>
-      <p><small>“Guarding Our most Precious Splashes.”</small></p>
-      <p><small>Hot Springs, Arkansas</small></p>
+  <div class="cols">
+    <div>
+      <div class="fbrand">
+        <img src="/assets/logo.png" alt=""/>
+        <strong>Seraph Safety Mission</strong>
+      </div>
+      <p class="tag">&ldquo;Guarding Our Most Precious Splashes.&rdquo;</p>
+      <p class="tag">Hot Springs, Arkansas &middot; 501(c)(3)</p>
     </div>
-    <div class="col">
-      <p><small><strong>Contact</strong></small></p>
-      <p><small>Phone: <a href="tel:+15019142284">(501) 914-2284</a> • <a href="tel:+15019141284">(501) 914-1284</a></small></p>
-      <p><small>Vanity line: <a href="tel:+15019142284">(501) 914-BATH</a></small></p>
-      <p><small>Email: <a href="mailto:Seraphsafetydirector@outlook.com">Seraphsafetydirector@outlook.com</a></small></p>
+    <div>
+      <p class="head">Contact</p>
+      <p><a href="tel:+15019142284">(501) 914-BATH</a></p>
+      <p><a href="tel:+15019141284">(501) 914-1284</a></p>
+      <p><a href="mailto:Seraphsafetydirector@outlook.com">Seraphsafetydirector@outlook.com</a></p>
     </div>
-    <div class="col">
-      <p><small><strong>Downloads</strong></small></p>
-      <p><small><a href="/assets/whitepaper.pdf">Whitepaper (PDF)</a></small></p>
-      <p><small><a href="/assets/Seraph_Safety_Mission_CCBSS_PitchDeck.pptx">Pitch deck (PPTX)</a></small></p>
-      <p><small><a href="/assets/Seraph_Bylaws.docx">Bylaws (DOCX)</a></small></p>
+    <div>
+      <p class="head">Downloads</p>
+      <p><a href="/assets/whitepaper.pdf">Whitepaper (PDF)</a></p>
+      <p><a href="/assets/Seraph_Safety_Mission_CCBSS_PitchDeck.pptx">Pitch deck (PPTX)</a></p>
+      <p><a href="/assets/Seraph_Bylaws.docx">Bylaws (DOCX)</a></p>
     </div>
   </div>
+  <div class="legal">&copy; 2026 Seraph Safety Mission. Educational information only &mdash; not medical advice.</div>
 </footer>
+
+<script>
+(function(){
+  var player = document.getElementById('player');
+  var poster = document.getElementById('poster');
+  if(!player || !poster) return;
+  poster.addEventListener('click', function(){
+    var src = player.getAttribute('data-src') || '';
+    if(!src) return;
+    var yt = src.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/i);
+    var vim = src.match(/vimeo\.com\/(?:video\/)?(\d+)/i);
+    var el;
+    if(yt || vim){
+      el = document.createElement('iframe');
+      el.src = yt ? 'https://www.youtube.com/embed/'+yt[1]+'?autoplay=1&rel=0&modestbranding=1'
+                  : 'https://player.vimeo.com/video/'+vim[1]+'?autoplay=1';
+      el.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen');
+      el.setAttribute('allowfullscreen','');
+      el.title = 'Seraph Safety Mission — Touch-First Bath Protocol';
+    } else {
+      el = document.createElement('video');
+      el.src = src;
+      el.controls = true;
+      el.autoplay = true;
+      el.playsInline = true;
+      el.setAttribute('preload','metadata');
+    }
+    poster.remove();
+    player.appendChild(el);
+  });
+})();
+</script>
 <script src="/widget/seraph-widget.js"></script>
 </body>
 </html>
